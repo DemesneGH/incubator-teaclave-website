@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Linear","Linear network layer"]],"trait":[["NetLayer","Trait for neural net layers"]]});

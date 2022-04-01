@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["MinMaxFitter","A builder used to construct a `MinMaxScaler`"],["MinMaxScaler","The `MinMaxScaler`"]]});

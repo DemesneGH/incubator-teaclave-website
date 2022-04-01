@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Error","A general error that can occur when working with UUIDs."]]});

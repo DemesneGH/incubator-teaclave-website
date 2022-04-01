@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["TeaclaveStorageRequest",""],["TeaclaveStorageResponse",""]],"struct":[["DeleteRequest",""],["DeleteResponse",""],["DequeueRequest",""],["DequeueResponse",""],["EnqueueRequest",""],["EnqueueResponse",""],["GetRequest",""],["GetResponse",""],["PutRequest",""],["PutResponse",""],["TeaclaveStorageClient",""]],"trait":[["TeaclaveStorage",""]]});

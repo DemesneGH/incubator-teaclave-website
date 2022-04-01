@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["rsgx_oom",""],["set_oom_handler","Set a custom handler for out-of-memory conditions"],["take_oom_handler","Unregisters the current custom handler, returning it."]]});

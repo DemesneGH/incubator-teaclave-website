@@ -1,0 +1,1 @@
+initSidebarItems({"attr":[["test_case",""]],"fn":[["test",""],["test_end",""],["test_start",""]],"macro":[["check_all_passed",""],["run_inventory_tests",""],["run_tests",""],["should_panic",""]],"struct":[["TestCase",""]]});

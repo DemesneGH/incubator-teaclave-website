@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["teaclave_client_sdk"] = [{"text":"impl Send for AuthenticationClient","synthetic":true,"types":[]},{"text":"impl Send for AuthenticationService","synthetic":true,"types":[]},{"text":"impl Send for FrontendService","synthetic":true,"types":[]},{"text":"impl Send for FrontendClient","synthetic":true,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

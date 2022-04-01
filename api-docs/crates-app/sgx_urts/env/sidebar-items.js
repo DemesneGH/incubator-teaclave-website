@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["u_chdir_ocall",""],["u_environ_ocall",""],["u_getcwd_ocall",""],["u_getenv_ocall",""],["u_getpwuid_r_ocall",""],["u_getuid_ocall",""],["u_setenv_ocall",""],["u_unsetenv_ocall",""]]});
