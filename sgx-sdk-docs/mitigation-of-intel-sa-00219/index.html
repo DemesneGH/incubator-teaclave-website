@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Background | Apache Teaclave (incubating)</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono|Roboto:100,300,400,500,700,900|Roboto+Condensed:300,400|Noto+Sans+SC:400,500,700,900">
+    <script src="https://use.fontawesome.com/releases/v5.15.0/js/all.js"></script>
+    <link rel="alternate" type="application/rss+xml" href="https://teaclave.apache.org/rss.xml" title="Apache Teaclave (incubating) RSS Feed">
+    <link rel="alternate" type="application/atom+xml" href="https://teaclave.apache.org/feed.atom" title="Apache Teaclave (incubating) Atom Feed">
+    <link rel="alternate" type="application/json" href="https://teaclave.apache.org/feed.json" title="Apache Teaclave (incubating) JSON Feed">
+    <meta name="description" content="Apache Teaclave (incubating) is an open source universal secure computing platform, making computation on privacy-sensitive data safe and simple.">
+    <meta property="article:modified_time" content="2021-09-14T20:11:22.000Z">
+    <meta property="og:site_name" content="Apache Teaclave (incubating)">
+    <meta property="og:title" content="Background">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://teaclave.apache.org/sgx-sdk-docs/mitigation-of-intel-sa-00219/">
+    <meta name="twitter:title" content="Background">
+    <meta name="twitter:url" content="https://teaclave.apache.org/sgx-sdk-docs/mitigation-of-intel-sa-00219/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ApacheTeaclave">
+    
+    <link rel="preload" href="/assets/css/0.styles.5b7e851c.css" as="style"><link rel="preload" href="/assets/js/app.f4682b06.js" as="script"><link rel="preload" href="/assets/js/32.d157eee7.js" as="script"><link rel="preload" href="/assets/js/1.cbb4fb03.js" as="script"><link rel="preload" href="/assets/js/61.dcaacc38.js" as="script"><link rel="prefetch" href="/assets/js/10.1c50e6e7.js"><link rel="prefetch" href="/assets/js/100.9a0aee44.js"><link rel="prefetch" href="/assets/js/101.770151f8.js"><link rel="prefetch" href="/assets/js/102.b9aa9299.js"><link rel="prefetch" href="/assets/js/103.f92fbc75.js"><link rel="prefetch" href="/assets/js/104.81cd2b10.js"><link rel="prefetch" href="/assets/js/105.caee37fd.js"><link rel="prefetch" href="/assets/js/106.4a21c73a.js"><link rel="prefetch" href="/assets/js/107.4ae2d520.js"><link rel="prefetch" href="/assets/js/108.d0602350.js"><link rel="prefetch" href="/assets/js/109.b931105a.js"><link rel="prefetch" href="/assets/js/11.7a91f8aa.js"><link rel="prefetch" href="/assets/js/110.a2ef6a1c.js"><link rel="prefetch" href="/assets/js/111.0aa6747d.js"><link rel="prefetch" href="/assets/js/112.2388eea4.js"><link rel="prefetch" href="/assets/js/113.ac37be99.js"><link rel="prefetch" href="/assets/js/114.434c1622.js"><link rel="prefetch" href="/assets/js/115.bc92445f.js"><link rel="prefetch" href="/assets/js/116.8e7e66b6.js"><link rel="prefetch" href="/assets/js/117.3ab16230.js"><link rel="prefetch" href="/assets/js/118.9c583df8.js"><link rel="prefetch" href="/assets/js/119.227f68c6.js"><link rel="prefetch" href="/assets/js/12.0a7a28dd.js"><link rel="prefetch" href="/assets/js/120.6c0f6656.js"><link rel="prefetch" href="/assets/js/121.efe6ebe0.js"><link rel="prefetch" href="/assets/js/122.adb36715.js"><link rel="prefetch" href="/assets/js/123.2d967830.js"><link rel="prefetch" href="/assets/js/124.dea7eaca.js"><link rel="prefetch" href="/assets/js/125.883614bc.js"><link rel="prefetch" href="/assets/js/126.98e5b0f8.js"><link rel="prefetch" href="/assets/js/127.03e7af1c.js"><link rel="prefetch" href="/assets/js/128.220a5327.js"><link rel="prefetch" href="/assets/js/129.eb468df9.js"><link rel="prefetch" href="/assets/js/13.95eb6f8f.js"><link rel="prefetch" href="/assets/js/130.3577b59c.js"><link rel="prefetch" href="/assets/js/131.09b14499.js"><link rel="prefetch" href="/assets/js/132.de26f745.js"><link rel="prefetch" href="/assets/js/133.9a46b962.js"><link rel="prefetch" href="/assets/js/134.ac693762.js"><link rel="prefetch" href="/assets/js/135.079b6688.js"><link rel="prefetch" href="/assets/js/136.b5749923.js"><link rel="prefetch" href="/assets/js/137.9c4c8346.js"><link rel="prefetch" href="/assets/js/138.a5408642.js"><link rel="prefetch" href="/assets/js/139.845aaeaa.js"><link rel="prefetch" href="/assets/js/14.963e1b62.js"><link rel="prefetch" href="/assets/js/140.a732c951.js"><link rel="prefetch" href="/assets/js/141.31f82f09.js"><link rel="prefetch" href="/assets/js/142.8d5218c8.js"><link rel="prefetch" href="/assets/js/143.9cb0797a.js"><link rel="prefetch" href="/assets/js/144.1f3498d7.js"><link rel="prefetch" href="/assets/js/145.5d040979.js"><link rel="prefetch" href="/assets/js/146.8b25bf3d.js"><link rel="prefetch" href="/assets/js/147.c58da40a.js"><link rel="prefetch" href="/assets/js/148.43e10ee4.js"><link rel="prefetch" href="/assets/js/149.90007151.js"><link rel="prefetch" href="/assets/js/15.91c496ed.js"><link rel="prefetch" href="/assets/js/150.d4f4f82f.js"><link rel="prefetch" href="/assets/js/151.9d5cb648.js"><link rel="prefetch" href="/assets/js/152.f81cfa01.js"><link rel="prefetch" href="/assets/js/153.6207e0fe.js"><link rel="prefetch" href="/assets/js/154.b1a78713.js"><link rel="prefetch" href="/assets/js/155.07e75869.js"><link rel="prefetch" href="/assets/js/156.32f963b4.js"><link rel="prefetch" href="/assets/js/157.a5bf4627.js"><link rel="prefetch" href="/assets/js/158.59f460cd.js"><link rel="prefetch" href="/assets/js/159.fee4724c.js"><link rel="prefetch" href="/assets/js/16.a1880d6c.js"><link rel="prefetch" href="/assets/js/160.87a12b7d.js"><link rel="prefetch" href="/assets/js/161.05b848a3.js"><link rel="prefetch" href="/assets/js/162.b8bcb033.js"><link rel="prefetch" href="/assets/js/163.8bf265a2.js"><link rel="prefetch" href="/assets/js/164.56935621.js"><link rel="prefetch" href="/assets/js/165.5d731e11.js"><link rel="prefetch" href="/assets/js/166.b5f080c5.js"><link rel="prefetch" href="/assets/js/167.de80d771.js"><link rel="prefetch" href="/assets/js/168.84ea90fa.js"><link rel="prefetch" href="/assets/js/169.2bc6d7af.js"><link rel="prefetch" href="/assets/js/17.6f2c3bc2.js"><link rel="prefetch" href="/assets/js/170.b6b0b39a.js"><link rel="prefetch" href="/assets/js/171.0123d642.js"><link rel="prefetch" href="/assets/js/172.b513eeed.js"><link rel="prefetch" href="/assets/js/18.5048f865.js"><link rel="prefetch" href="/assets/js/19.bc8e421c.js"><link rel="prefetch" href="/assets/js/2.4ced926a.js"><link rel="prefetch" href="/assets/js/20.e13eeb2a.js"><link rel="prefetch" href="/assets/js/21.b4330149.js"><link rel="prefetch" href="/assets/js/22.abf22cad.js"><link rel="prefetch" href="/assets/js/23.56f6e39e.js"><link rel="prefetch" href="/assets/js/24.34938eee.js"><link rel="prefetch" href="/assets/js/25.594af1a7.js"><link rel="prefetch" href="/assets/js/26.81d6eb82.js"><link rel="prefetch" href="/assets/js/27.2f0ecfc3.js"><link rel="prefetch" href="/assets/js/28.cab484b7.js"><link rel="prefetch" href="/assets/js/29.cdb63bd3.js"><link rel="prefetch" href="/assets/js/30.2673e5b5.js"><link rel="prefetch" href="/assets/js/31.e792f8f6.js"><link rel="prefetch" href="/assets/js/33.2628118d.js"><link rel="prefetch" href="/assets/js/34.651b34d7.js"><link rel="prefetch" href="/assets/js/35.e1c4e9e0.js"><link rel="prefetch" href="/assets/js/36.97c8d95e.js"><link rel="prefetch" href="/assets/js/37.d0a491de.js"><link rel="prefetch" href="/assets/js/38.236e06e3.js"><link rel="prefetch" href="/assets/js/39.23289fa2.js"><link rel="prefetch" href="/assets/js/40.614350dd.js"><link rel="prefetch" href="/assets/js/41.e922602e.js"><link rel="prefetch" href="/assets/js/42.2696f2cd.js"><link rel="prefetch" href="/assets/js/43.74adeed2.js"><link rel="prefetch" href="/assets/js/44.ef68c020.js"><link rel="prefetch" href="/assets/js/45.500907fa.js"><link rel="prefetch" href="/assets/js/46.c68c9e44.js"><link rel="prefetch" href="/assets/js/47.f17ca7ef.js"><link rel="prefetch" href="/assets/js/48.5026699c.js"><link rel="prefetch" href="/assets/js/49.fef3051a.js"><link rel="prefetch" href="/assets/js/5.ea12571b.js"><link rel="prefetch" href="/assets/js/50.b3d1dc31.js"><link rel="prefetch" href="/assets/js/51.05b877e4.js"><link rel="prefetch" href="/assets/js/52.d3aadcf6.js"><link rel="prefetch" href="/assets/js/53.fc1c37cd.js"><link rel="prefetch" href="/assets/js/54.5f3f9049.js"><link rel="prefetch" href="/assets/js/55.44fe79c6.js"><link rel="prefetch" href="/assets/js/56.ea0cbbb1.js"><link rel="prefetch" href="/assets/js/57.dd726939.js"><link rel="prefetch" href="/assets/js/58.5f973c36.js"><link rel="prefetch" href="/assets/js/59.d26844e6.js"><link rel="prefetch" href="/assets/js/6.0d609717.js"><link rel="prefetch" href="/assets/js/60.3b875621.js"><link rel="prefetch" href="/assets/js/62.bce41c01.js"><link rel="prefetch" href="/assets/js/63.72c1b488.js"><link rel="prefetch" href="/assets/js/64.7b01f7bc.js"><link rel="prefetch" href="/assets/js/65.8c3a7b20.js"><link rel="prefetch" href="/assets/js/66.fcd5a6f4.js"><link rel="prefetch" href="/assets/js/67.8f82f60a.js"><link rel="prefetch" href="/assets/js/68.e7a316fd.js"><link rel="prefetch" href="/assets/js/69.25e01572.js"><link rel="prefetch" href="/assets/js/7.4db0e981.js"><link rel="prefetch" href="/assets/js/70.fe8f8a60.js"><link rel="prefetch" href="/assets/js/71.595c247a.js"><link rel="prefetch" href="/assets/js/72.fbd39042.js"><link rel="prefetch" href="/assets/js/73.5986e3f1.js"><link rel="prefetch" href="/assets/js/74.05b42e4a.js"><link rel="prefetch" href="/assets/js/75.cb7fc19e.js"><link rel="prefetch" href="/assets/js/76.abcb8f3d.js"><link rel="prefetch" href="/assets/js/77.3c172869.js"><link rel="prefetch" href="/assets/js/78.1dd9ae7d.js"><link rel="prefetch" href="/assets/js/79.a19b2102.js"><link rel="prefetch" href="/assets/js/8.3277a590.js"><link rel="prefetch" href="/assets/js/80.6ac1c7c0.js"><link rel="prefetch" href="/assets/js/81.c19ae8aa.js"><link rel="prefetch" href="/assets/js/82.d2182137.js"><link rel="prefetch" href="/assets/js/83.cc77ff0e.js"><link rel="prefetch" href="/assets/js/84.76a8c054.js"><link rel="prefetch" href="/assets/js/85.6c0f9a49.js"><link rel="prefetch" href="/assets/js/86.5f2383b0.js"><link rel="prefetch" href="/assets/js/87.0946a666.js"><link rel="prefetch" href="/assets/js/88.7b71e1ef.js"><link rel="prefetch" href="/assets/js/89.da052189.js"><link rel="prefetch" href="/assets/js/9.c9465486.js"><link rel="prefetch" href="/assets/js/90.e7287217.js"><link rel="prefetch" href="/assets/js/91.c10d2aa7.js"><link rel="prefetch" href="/assets/js/92.492ee4d0.js"><link rel="prefetch" href="/assets/js/93.0bf4fb5c.js"><link rel="prefetch" href="/assets/js/94.0e04d36c.js"><link rel="prefetch" href="/assets/js/95.ff9c9d11.js"><link rel="prefetch" href="/assets/js/96.1c09b839.js"><link rel="prefetch" href="/assets/js/97.d6ea1f15.js"><link rel="prefetch" href="/assets/js/98.b1ddea04.js"><link rel="prefetch" href="/assets/js/99.42bd1983.js"><link rel="prefetch" href="/assets/js/vuejs-paginate.08e45865.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5b7e851c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Teaclave</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  ABOUT
+</a></div><div class="nav-item"><a href="/powered-by/" class="nav-link">
+  POWERED BY
+</a></div><div class="nav-item"><a href="/community/" class="nav-link">
+  COMMUNITY
+</a></div><div class="nav-item"><a href="/download/" class="nav-link">
+  DOWNLOAD
+</a></div><div class="nav-item"><a href="/contributors/" class="nav-link">
+  CONTRIBUTORS
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="DOCS" class="dropdown-title"><span class="title">DOCS</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/" class="nav-link">
+  Teaclave
+</a></li><li class="dropdown-item"><!----> <a href="/sgx-sdk-docs/" class="nav-link router-link-active">
+  Teaclave SGX SDK
+</a></li><li class="dropdown-item"><!----> <a href="/trustzone-sdk-docs/" class="nav-link">
+  Teaclave TrustZone SDK
+</a></li><li class="dropdown-item"><h4>
+          APIS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://teaclave.apache.org/api-docs/client-sdk-rust/" target="_self" rel="" class="nav-link external">
+  Teaclave Client SDK (Rust)
+  <!----></a></li><li class="dropdown-subitem"><a href="https://teaclave.apache.org/api-docs/client-sdk-python/" target="_self" rel="" class="nav-link external">
+  Teaclave Client SDK (Python)
+  <!----></a></li><li class="dropdown-subitem"><a href="https://teaclave.apache.org/api-docs/sgx-sdk/" target="_self" rel="" class="nav-link external">
+  Teaclave SGX SDK
+  <!----></a></li><li class="dropdown-subitem"><a href="https://teaclave.apache.org/api-docs/trustzone-sdk/optee-teec" target="_self" rel="" class="nav-link external">
+  Teaclave TrustZone SDK (Host)
+  <!----></a></li><li class="dropdown-subitem"><a href="https://teaclave.apache.org/api-docs/trustzone-sdk/optee-utee" target="_self" rel="" class="nav-link external">
+  Teaclave TrustZone SDK (TA)
+  <!----></a></li><li class="dropdown-subitem"><a href="https://teaclave.apache.org/api-docs/crates-enclave/" target="_self" rel="" class="nav-link external">
+  Crates in Teaclave (Enclave)
+  <!----></a></li><li class="dropdown-subitem"><a href="https://teaclave.apache.org/api-docs/crates-app/" target="_self" rel="" class="nav-link external">
+  Crates in Teaclave (App)
+  <!----></a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/" class="nav-link">
+  BLOG
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="REPOS" class="dropdown-title"><span class="title">REPOS</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/apache/incubator-teaclave" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Teaclave
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/apache/incubator-teaclave-sgx-sdk" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Teaclave SGX SDK
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/apache/incubator-teaclave-trustzone-sdk" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Teaclave TrustZone SDK
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/apache/incubator-teaclave-website" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Teaclave Website
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Apache Software Foundation" class="dropdown-title"><span class="title">ASF</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  ASF Homepage
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/licenses/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  License
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Sponsorship
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Security
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Thanks
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/events/current-event.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Current Event
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  ABOUT
+</a></div><div class="nav-item"><a href="/powered-by/" class="nav-link">
+  POWERED BY
+</a></div><div class="nav-item"><a href="/community/" class="nav-link">
+  COMMUNITY
+</a></div><div class="nav-item"><a href="/download/" class="nav-link">
+  DOWNLOAD
+</a></div><div class="nav-item"><a href="/contributors/" class="nav-link">
+  CONTRIBUTORS
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="DOCS" class="dropdown-title"><span class="title">DOCS</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/" class="nav-link">
+  Teaclave
+</a></li><li class="dropdown-item"><!----> <a href="/sgx-sdk-docs/" class="nav-link router-link-active">
+  Teaclave SGX SDK
+</a></li><li class="dropdown-item"><!----> <a href="/trustzone-sdk-docs/" class="nav-link">
+  Teaclave TrustZone SDK
+</a></li><li class="dropdown-item"><h4>
+          APIS
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://teaclave.apache.org/api-docs/client-sdk-rust/" target="_self" rel="" class="nav-link external">
+  Teaclave Client SDK (Rust)
+  <!----></a></li><li class="dropdown-subitem"><a href="https://teaclave.apache.org/api-docs/client-sdk-python/" target="_self" rel="" class="nav-link external">
+  Teaclave Client SDK (Python)
+  <!----></a></li><li class="dropdown-subitem"><a href="https://teaclave.apache.org/api-docs/sgx-sdk/" target="_self" rel="" class="nav-link external">
+  Teaclave SGX SDK
+  <!----></a></li><li class="dropdown-subitem"><a href="https://teaclave.apache.org/api-docs/trustzone-sdk/optee-teec" target="_self" rel="" class="nav-link external">
+  Teaclave TrustZone SDK (Host)
+  <!----></a></li><li class="dropdown-subitem"><a href="https://teaclave.apache.org/api-docs/trustzone-sdk/optee-utee" target="_self" rel="" class="nav-link external">
+  Teaclave TrustZone SDK (TA)
+  <!----></a></li><li class="dropdown-subitem"><a href="https://teaclave.apache.org/api-docs/crates-enclave/" target="_self" rel="" class="nav-link external">
+  Crates in Teaclave (Enclave)
+  <!----></a></li><li class="dropdown-subitem"><a href="https://teaclave.apache.org/api-docs/crates-app/" target="_self" rel="" class="nav-link external">
+  Crates in Teaclave (App)
+  <!----></a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/" class="nav-link">
+  BLOG
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="REPOS" class="dropdown-title"><span class="title">REPOS</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/apache/incubator-teaclave" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Teaclave
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/apache/incubator-teaclave-sgx-sdk" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Teaclave SGX SDK
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/apache/incubator-teaclave-trustzone-sdk" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Teaclave TrustZone SDK
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/apache/incubator-teaclave-website" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Teaclave Website
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Apache Software Foundation" class="dropdown-title"><span class="title">ASF</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  ASF Homepage
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/licenses/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  License
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Sponsorship
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Security
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Thanks
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/events/current-event.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Current Event
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Development</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/sgx-sdk-docs/environment-setup/" class="sidebar-link">Recommended OS to start with</a></li><li><a href="/sgx-sdk-docs/is_x86_feature_detected-in-sgx-sdk/" class="sidebar-link">is_x86_feature_detected in Teaclave SGX SDK</a></li><li><a href="/sgx-sdk-docs/developing-with-vscode/" class="sidebar-link">Developing with Visual Studio Code</a></li><li><a href="/sgx-sdk-docs/debugging-a-local-rust-sgx-enclave/" class="sidebar-link">Before start</a></li><li><a href="/sgx-sdk-docs/public-cloud-for-rust-sgx-dev/" class="sidebar-link">List of public available cloud service provide for Rust SGX development</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Tutorial</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/sgx-sdk-docs/sgxtime/" class="sidebar-link">Acquiring Trusted timestamp from Intel ME in SGX enclave</a></li><li><a href="/sgx-sdk-docs/performance-optimization-tips/" class="sidebar-link">Performance Optimization Tips</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Security</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/sgx-sdk-docs/everything-about-cve-2020-5499/" class="sidebar-link">Everything about CVE-2020-5499</a></li><li><a href="/sgx-sdk-docs/mitigation-of-intel-sa-00219/" aria-current="page" class="active sidebar-link">Background</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="background"><a href="#background" class="header-anchor">#</a> Background</h1> <p>Intel issued <a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00219.html" target="_blank" rel="noopener noreferrer">Intel SA-00219</a> on Nov 12, 2019, with CVE number <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0117" target="_blank" rel="noopener noreferrer">CVE-2019-0117</a>. Intel also published a <a href="https://software.intel.com/en-us/download/intel-sgx-sdk-developer-guidance-intel-sa-00219" target="_blank" rel="noopener noreferrer">guidance</a> to instruct the developers/researchers. Then Intel released <a href="https://01.org/intel-softwareguard-extensions/downloads/intel-sgx-linux-2.7.1-release-version-string-2.7.101.3" target="_blank" rel="noopener noreferrer">Intel SGX SDK v2.7.1</a>, including new memory allocation primitives and corresponding patches in PSW enclaves.</p> <p>This article is to help people understand Intel-SA-00219, and how Rust SGX SDK handles it. Please feel free to reach me at dingelish@gmail.com, or dingyu@apache.org.</p> <h2 id="the-problem-statement-and-my-thoughts"><a href="#the-problem-statement-and-my-thoughts" class="header-anchor">#</a> The problem statement and my thoughts</h2> <p>The only statement I found is on the <a href="https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00219.html" target="_blank" rel="noopener noreferrer">Intel-SA-00219 page</a>:</p> <blockquote><p>Organize the code/data within enclave memory to avoid putting sensitive materials in DWORD0 and DWORD1 of cache line. The effectiveness of this mitigation is dependent on the ability for the software to avoid the affected memory region. To assist the enclave application providers to modify their code, Intel is releasing SGX SDK update (Windows version 2.5.101.3, Linux version 2.7.101.3) with new memory allocation APIs to avoid the affected memory region. More details about the APIs can be found <a href="https://software.intel.com/en-us/download/intel-sgx-sdk-developer-guidance-intel-sa-00219" target="_blank" rel="noopener noreferrer">here</a>.</p></blockquote> <p>Intel does not directly describe the vulnerability here. But it's clear that the 64-byte cache line would contain 8-byte or sensitive data, which can be keys protected by Intel SGX. So the following memory layout can be problematic in SGX:</p> <div class="language- extra-class"><pre class="language-text"><code> --------------------------------------------------------------------------------------
+| attacker accessible data A | private key (inaccessible) | attacker accessible data B |
+ --------------------------------------------------------------------------------------
+</code></pre></div><p>It's equal to a vulnerable data structure like:</p> <div class="language- extra-class"><pre class="language-text"><code>struct foo {
+    uint64_t A;
+    uint64_t secret;
+    uint64_t B;
+}
+</code></pre></div><p>where <code>foo.A</code> and <code>foo.B</code> are accessible by design, while <code>foo.secret</code> is not.</p> <p>If an attacker somehow can access either A or B, he probably will have first or last 8-byte of the &quot;inaccessible&quot; secret in cache line. Then something bad may happen.</p> <p>So, the most straightforward mitigation is to insert additional &quot;guard bytes&quot; before and after the sensitive data:</p> <div class="language- extra-class"><pre class="language-text"><code> ----------------------------------------------------------------------------------------------
+| attacker data A | 8-byte guard | private key (inaccessible) | 8-byte guard | attacker data B |
+ ----------------------------------------------------------------------------------------------
+</code></pre></div><p>It results in a modified structure like</p> <div class="language- extra-class"><pre class="language-text"><code>struct foo {
+    uint64_t A;
+    (private) uint64_t _guard0;
+    uint64_t secret;
+    (private) uint64_t _guard1;
+    uint64_t B;
+}
+</code></pre></div><p>Further investigation from Intel's code reveals that <code>_guard1</code> is not required. So it can be:</p> <div class="language- extra-class"><pre class="language-text"><code>     -------------------------------------------------------------------------------
+    | attacker data A | 8-byte guard | private key (inaccessible) | attacker data B |
+     -------------------------------------------------------------------------------
+</code></pre></div><h2 id="intel-s-new-allocator-primitive"><a href="#intel-s-new-allocator-primitive" class="header-anchor">#</a> Intel's new allocator primitive</h2> <p>Intel's guidance provides:</p> <p>(1) A C++ template <code>custom_alignment_aligned</code>
+(2) A C function <code>sgx_get_aligned_ptr</code> and one of its parameter's type <code>struct align_req_t</code>
+(3) A dynamic memory allocator function <code>sgx_aligned_malloc</code></p> <p>After spending hours on Intel's code, I realized that these primitives are helping developers allocate a larger object which:</p> <p>a) contains all fields of the original object.
+b) adds &quot;guard bytes&quot; before and after each &quot;specified secret field&quot;.
+c) align each &quot;specified secret field&quot; on demand</p> <h2 id="intel-s-patches-on-psw-enclaves"><a href="#intel-s-patches-on-psw-enclaves" class="header-anchor">#</a> Intel's patches on PSW enclaves</h2> <p>The most easy to understand example is from <code>psw/ae/pse_op/session_mgr.cpp</code>:</p> <div class="language-diff extra-class"><pre class="language-text"><code>@@ -417,7 +461,12 @@ pse_op_error_t pse_exchange_report(uint64_t tick,
+ {
+     pse_op_error_t status = OP_SUCCESS;
+     sgx_dh_session_t sgx_dh_session;
+-    sgx_key_128bit_t aek;
++    //
++    // securely align aek
++    //
++    //sgx_key_128bit_t aek;
++    sgx::custom_alignment_aligned&lt;sgx_key_128bit_t, sizeof(sgx_key_128bit_t), 0, sizeof(sgx_key_128bit_t)&gt; oaek;
++    sgx_key_128bit_t&amp; aek = oaek.v;
+     sgx_dh_session_enclave_identity_t initiator_identity;
+     cse_sec_prop_t * pcse_sec = NULL;
+     secu_info_t* psec_info = NULL;
+</code></pre></div><p>The template generates a larger struct <code>oaek</code>. Size of <code>sgx_key_128bit_t</code> is 16 bytes, and <code>sizeof(oaek)</code> equals to 32. And the offset of <code>oaek.v</code> is 8.</p> <p>And in the same file, another fix is:</p> <div class="language-diff extra-class"><pre class="language-text"><code>--- a/psw/ae/pse/pse_op/session_mgr.cpp
++++ b/psw/ae/pse/pse_op/session_mgr.cpp
+@@ -29,21 +29,65 @@
+  *
+  */
+
+-
++#include &lt;sgx_secure_align.h&gt;
+ #include &quot;utility.h&quot;
+ #include &quot;session_mgr.h&quot;
+ #include &quot;pse_op_t.h&quot;
+ #include &quot;sgx_dh.h&quot;
+
+ // ISV enclave &lt;-&gt; pse-op sessions
+-static pse_session_t        g_session[SESSION_CONNECTION];
++//
++// securely align all ISV enclave - pse sessions' secrets
++//
++static sgx::custom_alignment_aligned&lt;pse_session_t, 16, __builtin_offsetof(pse_session_t, active.AEK), 16&gt; og_session[SESSION_CONNECTION];
++//
++// following allows existing references to g_session[index]
++// to not have to change
++//
++class CSessions
++{
++public:
++    pse_session_t&amp; operator[](int index) {
++        return og_session[index].v;
++    }
++};
++static CSessions g_session;
+ static uint32_t             g_session_count = 0;
+</code></pre></div><p>It seems that the original global <code>g_session</code> array is vulnerabile to INTEL-SA-00219. So Intel created a new structure <code>CSessions</code> and reloaded the <code>[]</code> operator, and used <code>custom_alignment_aligned</code> template to create the array of guarded <code>CSessions</code>.</p> <p>We can see some more complex samples in the same file, such as:</p> <div class="language-diff extra-class"><pre class="language-text"><code> // ephemeral session global variables
+ static uint8_t              g_nonce_r_pse[EPH_SESSION_NONCE_SIZE] = {0};      // nonce R(PSE) for ephemeral session establishment
+ static uint8_t              g_nonce_r_cse[EPH_SESSION_NONCE_SIZE] = {0};      // nonce R(CSE) for ephemeral session establishment
+-static pairing_data_t       g_pairing_data;                       // unsealed pairing data
+-eph_session_t               g_eph_session;                        // ephemeral session information
++
++//
++// securely align pairing data
++// Id_pse and Id_cse aren't secrets
++// I don't think pairingNonce is a secret and even if it is, we can't align
++// all of [mk, sk, pairingID, pairingNonce]
++//
++//static pairing_data_t       g_pairing_data;                       // unsealed pairing data
++static sgx::custom_alignment&lt;pairing_data_t,
++    //__builtin_offsetof(pairing_data_t, secret_data.Id_pse), sizeof(((pairing_data_t*)0)-&gt;secret_data.Id_pse),
++    //__builtin_offsetof(pairing_data_t, secret_data.Id_cse), sizeof(((pairing_data_t*)0)-&gt;secret_data.Id_cse),
++    __builtin_offsetof(pairing_data_t, secret_data.mk), sizeof(((pairing_data_t*)0)-&gt;secret_data.mk),
++    __builtin_offsetof(pairing_data_t, secret_data.sk), sizeof(((pairing_data_t*)0)-&gt;secret_data.sk),
++    __builtin_offsetof(pairing_data_t, secret_data.pairingID), sizeof(((pairing_data_t*)0)-&gt;secret_data.pairingID)
++    //__builtin_offsetof(pairing_data_t, secret_data.pairingNonce), sizeof(((pairing_data_t*)0)-&gt;secret_data.pairingNonce)
++    &gt; opairing_data;
++pairing_data_t&amp; g_pairing_data = opairing_data.v;
++//
++// securely align pse - cse/psda ephemeral session secrets
++//
++//eph_session_t               g_eph_session;                        // ephemeral session information
++sgx::custom_alignment&lt;eph_session_t,
++    __builtin_offsetof(eph_session_t, TSK), sizeof(((eph_session_t*)0)-&gt;TSK),
++    __builtin_offsetof(eph_session_t, TMK), sizeof(((eph_session_t*)0)-&gt;TMK)
++&gt; oeph_session;
++//
++// this reference trick requires change to declaration
++// in other files, but still cleaner than changing
++// all references
++//
++eph_session_t&amp; g_eph_session = oeph_session.v;
+
+ /**
+  * @brief Check the status of the ephemeral session
+</code></pre></div><p>To understand it, let me expand <code>struct pairing_data_t</code> here:</p> <div class="language- extra-class"><pre class="language-text"><code>/* Pairing blob unsealed and usable inside of enclave*/
+typedef struct _pairing_data_t
+{
+    se_plaintext_pairing_data_t plaintext; // does not involved
+    struct se_secret_pairing_data_t {
+            SHA256_HASH         Id_pse;
+            SHA256_HASH         Id_cse;
+            SIGMA_MAC_KEY       mk;
+            SIGMA_SECRET_KEY    sk;
+            SIGMA_SECRET_KEY    pairingID;  // old_sk used for repairing check
+            Nonce128_t          pairingNonce;
+            EcDsaPrivKey        VerifierPrivateKey;
+    } secret_data;
+} pairing_data_t;
+</code></pre></div><p>The patch seems to protect <code>mk</code>, <code>sk</code>, and <code>pairingID</code>, and all the other fields are commented out. What's more, this patch uses a <strong>undocumented</strong> template <code>sgx::custom_alignment</code> defined as:</p> <div class="language-cpp extra-class"><pre class="language-text"><code>    template &lt;class T, std::size_t... OLs&gt;
+    using custom_alignment = custom_alignment_aligned&lt;T, alignof(T), OLs...&gt;;
+</code></pre></div><h2 id="experiments-on-the-undocument-template"><a href="#experiments-on-the-undocument-template" class="header-anchor">#</a> Experiments on the undocument template</h2> <p>To test how the undocumented template work, I write the following codes:</p> <div class="language-cpp extra-class"><pre class="language-text"><code>    struct foo {
+        uint64_t secret1[5];       // offset = 0
+    };
+
+    typedef sgx::custom_alignment&lt;foo, __builtin_offsetof(foo, secret1), sizeof(((foo*)0)-&gt;secret1)&gt; AFOO;
+
+    printf(&quot;=== Size of foo = %u ===\n&quot;, sizeof(foo));                               // 40
+    printf(&quot;=== Size of bar = %u ===\n&quot;, sizeof(AFOO));                              // 64
+    printf(&quot;=== offset of AROO.v = %u ===\n&quot;, __builtin_offsetof(AFOO, v));          // 8
+    printf(&quot;=== offset of secret1 = %u ===\n&quot;, __builtin_offsetof(AFOO, v.secret1)); // 8
+</code></pre></div><p>So we can see that the structure of AROO is:</p> <div class="language-cpp extra-class"><pre class="language-text"><code>struct AROO {
+    uint64_t _padding_head[1]         // offset = 0, len = 8
+    struct {
+        uint64_t secret1[5];          // offset = 8, len = 40
+    } v;
+    uint64_t _padding_tail[2];        // offset = 40, len = 16
+</code></pre></div><p>It seems the undocumented C++ template aligns <code>AROO</code> to the next level, and add 8-byte headings into it. If we add the second secret in <code>foo</code> like:</p> <div class="language-cpp extra-class"><pre class="language-text"><code>    struct foo {
+        uint64_t secret1[5];       // offset = 0
+        uint64_t secret2[1];       // offset = 40
+    };
+
+    typedef sgx::custom_alignment&lt;foo,
+                __builtin_offsetof(foo, secret1), sizeof(((foo*)0)-&gt;secret1),
+                __builtin_offsetof(foo, secret2), sizeof(((foo*)0)-&gt;secret2)
+            &gt; AFOO;
+
+    printf(&quot;=== Size of foo = %u ===\n&quot;, sizeof(foo));            // 48
+    printf(&quot;=== Size of bar = %u ===\n&quot;, sizeof(AFOO));           // 64
+    printf(&quot;=== offset of AROO.v = %u ===\n&quot;, __builtin_offsetof(AFOO, v));           // 8
+    printf(&quot;=== offset of AROO.v.secret1 = %u ===\n&quot;, __builtin_offsetof(AFOO, v.secret1));           // 8
+    printf(&quot;=== offset of AROO.v.secret2 = %u ===\n&quot;, __builtin_offsetof(AFOO, v.secret2));           // 48
+</code></pre></div><p>we can see that the structure of AROO is:</p> <div class="language-cpp extra-class"><pre class="language-text"><code>struct AROO {
+    uint64_t _padding_head[1]         // offset = 0, len = 8
+    struct {
+        uint64_t secret1[5];          // offset = 8, len = 40
+        uint64_t secret2[1];          // offset = 48, len = 8
+    } v;
+    uint64_t _padding_tail[1];        // offset = 56, len = 8
+</code></pre></div><p>If we increase <code>secret2</code> to 16-bytes, it works well as usual. And the <code>_padding_tail</code> will have <strong>zero length</strong>. So does it means that <em>only extra heading is required for mitigation</em>? But it'll not compile if we make <code>secret2</code> 24-bytes, like:</p> <div class="language-c++ extra-class"><pre class="language-text"><code>    struct foo {
+        uint64_t secret1[5];       // offset = 0
+        uint64_t secret2[3];       // offset = 40
+    };
+
+    typedef sgx::custom_alignment&lt;foo,
+                __builtin_offsetof(foo, secret1), sizeof(((foo*)0)-&gt;secret1),
+                __builtin_offsetof(foo, secret2), sizeof(((foo*)0)-&gt;secret2)
+            &gt; AFOO;
+</code></pre></div><p>GCC would terminate on:</p> <div class="language- extra-class"><pre class="language-text"><code>make[1]: Entering directory '/root/linux-sgx/SampleCode/Cxx11SGXDemo'
+In file included from Enclave/TrustedLibrary/Libcxx.cpp:47:0:
+/opt/sgxsdk/include/sgx_secure_align.h: In instantiation of 'struct sgx::__custom_alignment_internal::custom_alignment&lt;ecall_lambdas_demo()::foo, 8ul, -1&gt;':
+Enclave/TrustedLibrary/Libcxx.cpp:125:53:   required from here
+/opt/sgxsdk/include/sgx_secure_align.h:123:13: error: static assertion failed: No viable offset
+             static_assert(LZ &gt; 0, &quot;No viable offset&quot;);
+             ^
+/opt/sgxsdk/include/sgx_secure_align.h:125:48: error: size of array is negative
+             char __no_secret_allowed_in_here[LZ];
+                                                ^
+Makefile:255: recipe for target 'Enclave/TrustedLibrary/Libcxx.o' failed
+</code></pre></div><p>Nothing changes if we switch to the original template <code>sgx::custom_alignment_aligned</code>. So I guess the template does not support structures:</p> <ul><li>contains secrets consecutively,  and</li> <li>the consecutive secrets' size is larger than a certain number (not sure yet)</li></ul> <p>If we break down <code>secret1</code> and <code>secret2</code> by inserting something in the middle, the template works:</p> <div class="language-c++ extra-class"><pre class="language-text"><code>struct foo {
+  uint64_t secret1[5];       // offset = 0
+  char     dumb;             // offset = 40
+  uint64_t secret2[3];       // offset = 48
+};
+
+typedef sgx::custom_alignment&lt;foo,
+__builtin_offsetof(foo, secret1), sizeof(((foo*)0)-&gt;secret1),
+__builtin_offsetof(foo, secret2), sizeof(((foo*)0)-&gt;secret2)
+  &gt; AFOO;
+
+printf(&quot;=== Size of foo = %u ===\n&quot;, sizeof(foo));            // 72
+printf(&quot;=== Size of bar = %u ===\n&quot;, sizeof(AFOO));           // 128
+printf(&quot;=== offset of AROO.v = %u ===\n&quot;, __builtin_offsetof(AFOO, v));           // 24
+printf(&quot;=== offset of AROO.v.secret1 = %u ===\n&quot;, __builtin_offsetof(AFOO, v.secret1));           // 24
+printf(&quot;=== offset of AROO.v.secret2 = %u ===\n&quot;, __builtin_offsetof(AFOO, v.secret2));           // 72
+</code></pre></div><h2 id="changes-actions-required"><a href="#changes-actions-required" class="header-anchor">#</a> Changes/Actions required</h2> <p>From Intel's usage, we can learn that:</p> <p>**Don't construct a sensitive data structure directly. Always allocate an aligned structure and fill it up later **</p> <p>It means:</p> <ul><li>if you allocate something sensitive (e.g. keys in <code>sgx_key_128bit_t</code>) on stack/heap, you probably need to allocate another guarded structure first, and get a mutable reference to its inner data.</li> <li>if you want to make <code>sgx_key_128bit_t</code> as the type of return value, you can choose between (1) return a guarded structure, or (2) takes an additional argument of caller-allocated, mutuable reference of <code>sgx_key_128bit_t</code> and fill it.</li></ul> <h2 id="rust-sgx-provided-primitive"><a href="#rust-sgx-provided-primitive" class="header-anchor">#</a> Rust SGX provided primitive</h2> <ul><li><p>We provided <code>AlignBox</code> as a replacement of <code>Box</code></p> <ul><li><p><code>Box</code> is somewhat tricky because it always &quot;initialize on stack first and copy to heap later&quot;. <a href="https://github.com/kvark/copyless" target="_blank" rel="noopener noreferrer">copyless</a> provides a novel primitive to solve <a href="https://github.com/dingelish/realbox" target="_blank" rel="noopener noreferrer">it but it does not always effective</a>. To this end, we created <code>AlignBox</code> which guarantees &quot;on-heap initialization&quot; without copying any bits. Usage:</p> <div class="language-rust extra-class"><pre class="language-text"><code>let heap_align_obj = AlignBox::&lt;struct_align_t&gt;::heap_init_with_req(|mut t| {
+  t.key1 = [0xf0, 0xf1, 0xf2, 0xf3, 0xf4, 0xf5, 0xf6, 0xf7, 0xf8, 0xf9, 0xfa, 0xfb, 0xfc, 0xfd, 0xfe, 0xff];
+  t.pad1 = [0x00; 16];
+  t.key2 = [0xf0, 0xf1, 0xf2, 0xf3, 0xf4, 0xf5, 0xf6, 0xf7, 0xf8, 0xf9, 0xfa, 0xfb, 0xfc, 0xfd, 0xfe, 0xff];
+  t.pad2 = [0x00; 16];
+  t.key3 = [0xf0, 0xf1, 0xf2, 0xf3, 0xf4, 0xf5, 0xf6, 0xf7, 0xf8, 0xf9, 0xfa, 0xfb, 0xfc, 0xfd, 0xfe, 0xff];
+  t.pad3 = [0x00; 16];
+  t.key4 = [0xf0, 0xf1, 0xf2, 0xf3, 0xf4, 0xf5, 0xf6, 0xf7, 0xf8, 0xf9, 0xfa, 0xfb, 0xfc, 0xfd, 0xfe, 0xff];
+  }, 16, &amp;str_slice);
+assert!(heap_align_obj.is_some());
+</code></pre></div></li></ul></li> <li><p>We provided aligned key type for each built-in key type. The layout are calculated by Intel's template.</p> <ul><li><code>sgx_align_key_128bit_t</code></li> <li><code>sgx_align_mac_128bit_t</code></li> <li><code>sgx_align_key_256bit_t</code></li> <li><code>sgx_align_mac_256bit_t</code></li> <li><code>sgx_align_ec256_dh_shared_t</code></li> <li><code>sgx_align_ec256_private_t</code></li></ul></li></ul> <p>We modified <code>sgx_tcrypto</code>, <code>sgx_tse</code>, and <code>sgx_tdh</code> and use the above primitives for enhancement, following the above required changes. One sample is from <code>sgx_tcrypto</code>:</p> <div class="language-rust extra-class"><pre class="language-text"><code>+    let mut align_mac = sgx_align_mac_128bit_t::default();
++    let ret = unsafe {
++        sgx_rijndael128_cmac_msg(key as * const sgx_cmac_128bit_key_t,
++                                 src.as_ptr() as * const u8,
++                                 size as u32,
++                                 &amp;mut align_mac.mac as * mut sgx_cmac_128bit_tag_t)
++    };
+</code></pre></div><p>We allocate an aligned structure first, and then fill it up using Intel's crypto primitive later.</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">9/14/2021, 1:11:22 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/sgx-sdk-docs/everything-about-cve-2020-5499/" class="prev">
+        Everything about CVE-2020-5499
+      </a></span> <!----></p></div>  <div class="footer">
+    Apache Teaclave (incubating) is an effort undergoing incubation at The Apache
+    Software Foundation (ASF), sponsored by the Apache Incubator.
+    Incubation is required of all newly accepted projects until a further review
+    indicates that the infrastructure, communications, and decision making process
+    have stabilized in a manner consistent with other successful ASF projects. While
+    incubation status is not necessarily a reflection of the completeness or
+    stability of the code, it does indicate that the project has yet to be fully
+    endorsed by the ASF.
+    Copyright © 2020 The Apache Software Foundation.
+    Licensed under the Apache License, Version 2.0.
+    Apache Teaclave, Apache, the Apache feather, and the Apache Teaclave project logo are either
+    trademarks or registered trademarks of the Apache Software Foundation.
+  </div></main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.f4682b06.js" defer></script><script src="/assets/js/32.d157eee7.js" defer></script><script src="/assets/js/1.cbb4fb03.js" defer></script><script src="/assets/js/61.dcaacc38.js" defer></script>
+  </body>
+</html>

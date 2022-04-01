@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["teaclave_client_sdk"] = [{"text":"impl !UnwindSafe for AuthenticationClient","synthetic":true,"types":[]},{"text":"impl UnwindSafe for AuthenticationService","synthetic":true,"types":[]},{"text":"impl UnwindSafe for FrontendService","synthetic":true,"types":[]},{"text":"impl !UnwindSafe for FrontendClient","synthetic":true,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

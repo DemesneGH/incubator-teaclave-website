@@ -1,0 +1,24 @@
+(function() {var implementors = {};
+implementors["anyhow"] = [{"text":"impl Drop for Error","synthetic":false,"types":[]}];
+implementors["base64"] = [{"text":"impl&lt;W:&nbsp;Write&gt; Drop for EncoderWriter&lt;W&gt;","synthetic":false,"types":[]}];
+implementors["bytes"] = [{"text":"impl Drop for BytesMut","synthetic":false,"types":[]},{"text":"impl Drop for Bytes","synthetic":false,"types":[]}];
+implementors["deflate"] = [{"text":"impl&lt;W:&nbsp;Write&gt; Drop for DeflateEncoder&lt;W&gt;","synthetic":false,"types":[]},{"text":"impl&lt;W:&nbsp;Write&gt; Drop for ZlibEncoder&lt;W&gt;","synthetic":false,"types":[]}];
+implementors["gif"] = [{"text":"impl&lt;W:&nbsp;Write&gt; Drop for Encoder&lt;W&gt;","synthetic":false,"types":[]}];
+implementors["hashbrown_tstd"] = [{"text":"impl&lt;'a, K, V, F&gt; Drop for DrainFilter&lt;'a, K, V, F&gt; <span class=\"where fmt-newline\">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: FnMut(&amp;K, &amp;mut V) -&gt; bool,&nbsp;</span>","synthetic":false,"types":[]},{"text":"impl&lt;'a, K, F&gt; Drop for DrainFilter&lt;'a, K, F&gt; <span class=\"where fmt-newline\">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: FnMut(&amp;K) -&gt; bool,&nbsp;</span>","synthetic":false,"types":[]}];
+implementors["http"] = [{"text":"impl&lt;'a, T&gt; Drop for Drain&lt;'a, T&gt;","synthetic":false,"types":[]},{"text":"impl&lt;T&gt; Drop for IntoIter&lt;T&gt;","synthetic":false,"types":[]},{"text":"impl&lt;'a, T&gt; Drop for ValueDrain&lt;'a, T&gt;","synthetic":false,"types":[]}];
+implementors["lzw"] = [{"text":"impl&lt;W:&nbsp;BitWriter&gt; Drop for Encoder&lt;W&gt;","synthetic":false,"types":[]}];
+implementors["png"] = [{"text":"impl&lt;W:&nbsp;Write&gt; Drop for Writer&lt;W&gt;","synthetic":false,"types":[]},{"text":"impl&lt;'a, W:&nbsp;Write&gt; Drop for StreamWriter&lt;'a, W&gt;","synthetic":false,"types":[]}];
+implementors["regex_syntax"] = [{"text":"impl Drop for Ast","synthetic":false,"types":[]},{"text":"impl Drop for ClassSet","synthetic":false,"types":[]},{"text":"impl Drop for Hir","synthetic":false,"types":[]}];
+implementors["rusty_leveldb"] = [{"text":"impl Drop for DB","synthetic":false,"types":[]}];
+implementors["sgx_alloc"] = [{"text":"impl&lt;T&gt; Drop for AlignBox&lt;T&gt;","synthetic":false,"types":[]}];
+implementors["sgx_tcrypto"] = [{"text":"impl Drop for SgxShaHandle","synthetic":false,"types":[]},{"text":"impl Drop for SgxSha1Handle","synthetic":false,"types":[]},{"text":"impl Drop for SgxCmacHandle","synthetic":false,"types":[]},{"text":"impl Drop for SgxHmacHandle","synthetic":false,"types":[]},{"text":"impl Drop for SgxEccHandle","synthetic":false,"types":[]},{"text":"impl Drop for SgxRsaPrivKey","synthetic":false,"types":[]},{"text":"impl Drop for SgxRsaPubKey","synthetic":false,"types":[]},{"text":"impl Drop for SgxAesHandle","synthetic":false,"types":[]}];
+implementors["sgx_tprotected_fs"] = [{"text":"impl Drop for SgxFileStream","synthetic":false,"types":[]}];
+implementors["sgx_trts"] = [{"text":"impl Drop for CString","synthetic":false,"types":[]}];
+implementors["smallvec"] = [{"text":"impl&lt;'a, T:&nbsp;'a + Array&gt; Drop for Drain&lt;'a, T&gt;","synthetic":false,"types":[]},{"text":"impl&lt;A:&nbsp;Array&gt; Drop for SmallVec&lt;A&gt;","synthetic":false,"types":[]},{"text":"impl&lt;A:&nbsp;Array&gt; Drop for IntoIter&lt;A&gt;","synthetic":false,"types":[]}];
+implementors["snap"] = [{"text":"impl&lt;W:&nbsp;Write&gt; Drop for Writer&lt;W&gt;","synthetic":false,"types":[]}];
+implementors["spin"] = [{"text":"impl&lt;'a, T:&nbsp;?Sized&gt; Drop for MutexGuard&lt;'a, T&gt;","synthetic":false,"types":[]},{"text":"impl&lt;'rwlock, T:&nbsp;?Sized&gt; Drop for RwLockReadGuard&lt;'rwlock, T&gt;","synthetic":false,"types":[]},{"text":"impl&lt;'rwlock, T:&nbsp;?Sized&gt; Drop for RwLockUpgradeableGuard&lt;'rwlock, T&gt;","synthetic":false,"types":[]},{"text":"impl&lt;'rwlock, T:&nbsp;?Sized&gt; Drop for RwLockWriteGuard&lt;'rwlock, T&gt;","synthetic":false,"types":[]}];
+implementors["syn"] = [{"text":"impl&lt;'a&gt; Drop for ParseBuffer&lt;'a&gt;","synthetic":false,"types":[]}];
+implementors["thread_local"] = [{"text":"impl&lt;T:&nbsp;Send&gt; Drop for ThreadLocal&lt;T&gt;","synthetic":false,"types":[]}];
+implementors["tiff"] = [{"text":"impl&lt;'a, W:&nbsp;Write + Seek&gt; Drop for DirectoryEncoder&lt;'a, W&gt;","synthetic":false,"types":[]},{"text":"impl&lt;'a, W:&nbsp;Write + Seek, C:&nbsp;ColorType&gt; Drop for ImageEncoder&lt;'a, W, C&gt;","synthetic":false,"types":[]}];
+implementors["url"] = [{"text":"impl&lt;'a&gt; Drop for PathSegmentsMut&lt;'a&gt;","synthetic":false,"types":[]},{"text":"impl&lt;'a&gt; Drop for UrlQuery&lt;'a&gt;","synthetic":false,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["ecall_ipc_entry_point","The actual ecall function defined in .edl."]]});

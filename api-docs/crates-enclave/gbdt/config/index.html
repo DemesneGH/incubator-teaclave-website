@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `config` mod in crate `gbdt`."><meta name="keywords" content="rust, rustlang, rust-lang, config"><title>gbdt::config - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../gbdt/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a><p class="location">Module config</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#functions">Functions</a></li></ul></div><p class="location"><a href="../index.html">gbdt</a></p><script>window.sidebarCurrent = {name: "config", ty: "mod", relpath: "../"};</script><script defer src="../sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="out-of-band"><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../../src/gbdt/config.rs.html#1-572" title="goto source code">[src]</a></span><span class="in-band">Module <a href="../index.html">gbdt</a>::<wbr><a class="mod" href="">config</a></span></h1><div class="docblock"><p>This module implements the config for gradient boosting.</p>
+<p>Following hyperparameters are supported:</p>
+<ol>
+<li>
+<p>feature_size: the size of features. Training data and test data should have
+the same feature size. (default = 1)</p>
+</li>
+<li>
+<p>max_depth: the max depth of a single decision tree. The root node is considered
+to be in the layer 0. (default = 2)</p>
+</li>
+<li>
+<p>iterations: the iterations for training, which is also the number of trees in the
+gradient boosting algorithm. (default = 2)</p>
+</li>
+<li>
+<p>shrinkage: the learning rate parameter of the gradient boosting algorithm.
+(default = 1.0)</p>
+</li>
+<li>
+<p>feature_sample_raio: portion of features to be splited. When spliting a node, a subset of
+the features (feature_size * feature_sample_ratio) will be randomly selected to calculate
+impurity. (default = 1.0)</p>
+</li>
+<li>
+<p>data_sample_ratio: portion of data used to train in a single iteration. Data will
+be randomly selected for the training. (default = 1.0)</p>
+</li>
+<li>
+<p>min_leaf_size: the minimum number of samples required to be at a leaf node during training.
+(default = 1)</p>
+</li>
+<li>
+<p>loss: the loss function type. SquaredError, LogLikelyhood and LAD are supported for training and inference.
+RegLinear, RegLogistic, BinaryLogistic, BinaryLogitraw, MultiSoftprob, MultiSoftmax, RankPairwise are supported for inference with xgboost's model.
+See <a href="enum.Loss.html">Loss</a>. (default = SquareError)</p>
+</li>
+<li>
+<p>debug: whether the debug information should be outputed. (default = false)</p>
+</li>
+<li>
+<p>initial_guess_enabled: whether initial guess for test data is enabled. (default = false)</p>
+</li>
+</ol>
+<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
+<div class="example-wrap"><pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">gbdt</span>::<span class="ident">config</span>::<span class="ident">Config</span>;
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">cfg</span> <span class="op">=</span> <span class="ident">Config</span>::<span class="ident">new</span>();
+<span class="ident">cfg</span>.<span class="ident">set_feature_size</span>(<span class="number">4</span>);
+<span class="ident">cfg</span>.<span class="ident">set_max_depth</span>(<span class="number">3</span>);
+<span class="ident">cfg</span>.<span class="ident">set_iterations</span>(<span class="number">3</span>);
+<span class="ident">cfg</span>.<span class="ident">set_loss</span>(<span class="string">&quot;LAD&quot;</span>);
+<span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">cfg</span>.<span class="ident">to_string</span>());
+
+<span class="comment">// output</span>
+<span class="comment">// number of features = 4</span>
+<span class="comment">// min leaf size = 1</span>
+<span class="comment">// maximum depth = 3</span>
+<span class="comment">// iterations = 3</span>
+<span class="comment">// shrinkage = 1</span>
+<span class="comment">// feature sample ratio = 1</span>
+<span class="comment">// data sample ratio = 1</span>
+<span class="comment">// debug enabled = false</span>
+<span class="comment">// loss type = LAD</span>
+<span class="comment">// initial guess enabled = false</span></pre></div>
+</div><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
+<table><tr class="module-item"><td><a class="struct" href="struct.Config.html" title="gbdt::config::Config struct">Config</a></td><td class="docblock-short"><p>The config for the gradient boosting algorithm.</p>
+</td></tr></table><h2 id="enums" class="section-header"><a href="#enums">Enums</a></h2>
+<table><tr class="module-item"><td><a class="enum" href="enum.Loss.html" title="gbdt::config::Loss enum">Loss</a></td><td class="docblock-short"><p>This enum defines the loss type.</p>
+</td></tr></table><h2 id="functions" class="section-header"><a href="#functions">Functions</a></h2>
+<table><tr class="module-item"><td><a class="fn" href="fn.loss2string.html" title="gbdt::config::loss2string fn">loss2string</a></td><td class="docblock-short"><p>Converting <a href="enum.Loss.html">Loss</a> to <a href="https://doc.rust-lang.org/std/string/struct.String.html">std::string::String</a>.</p>
+</td></tr><tr class="module-item"><td><a class="fn" href="fn.string2loss.html" title="gbdt::config::string2loss fn">string2loss</a></td><td class="docblock-short"><p>Converting <a href="https://doc.rust-lang.org/std/string/struct.String.html">std::string::String</a> to <a href="enum.Loss.html">Loss</a>.</p>
+</td></tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "gbdt";</script><script src="../../main.js"></script><script defer src="../../search-index.js"></script></body></html>

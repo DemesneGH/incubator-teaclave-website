@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["remove_protected_file",""]],"struct":[["OpenOptions","Options and flags which can be used to configure how a file is opened."],["ProtectedFile","A reference to an open file on the filesystem."]]});

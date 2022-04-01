@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["AuthorizeDataRequest",""],["AuthorizeDataResponse",""],["AuthorizeFunctionRequest",""],["AuthorizeFunctionResponse",""],["AuthorizeStagedTaskRequest",""],["AuthorizeStagedTaskResponse",""],["AuthorizeTaskRequest",""],["AuthorizeTaskResponse",""]]});

@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `rsgx_create_enclave` fn in crate `sgx_urts`."><meta name="keywords" content="rust, rustlang, rust-lang, rsgx_create_enclave"><title>sgx_urts::rsgx_create_enclave - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../ayu.css" disabled ><script src="../storage.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc fn"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../sgx_urts/index.html'><div class='logo-container rust-logo'><img src='../rust-logo.png' alt='logo'></div></a><div class="sidebar-elems"><p class="location"><a href="index.html">sgx_urts</a></p><script>window.sidebarCurrent = {name: "rsgx_create_enclave", ty: "fn", relpath: ""};</script><script defer src="sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="out-of-band"><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../src/sgx_urts/enclave.rs.html#197-219" title="goto source code">[src]</a></span><span class="in-band">Function <a href="index.html">sgx_urts</a>::<wbr><a class="fn" href="">rsgx_create_enclave</a></span></h1><pre class="rust fn">pub fn rsgx_create_enclave(<br>&nbsp;&nbsp;&nbsp;&nbsp;file_name: &amp;<a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;debug: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;launch_token: &amp;mut <a class="type" href="../sgx_types/types/type.sgx_launch_token_t.html" title="type sgx_types::types::sgx_launch_token_t">sgx_launch_token_t</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;launch_token_updated: &amp;mut <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;misc_attr: &amp;mut <a class="struct" href="../sgx_types/types/struct.sgx_misc_attribute_t.html" title="struct sgx_types::types::sgx_misc_attribute_t">sgx_misc_attribute_t</a><br>) -&gt; <a class="type" href="../sgx_types/error/type.SgxResult.html" title="type sgx_types::error::SgxResult">SgxResult</a>&lt;<a class="type" href="../sgx_types/types/type.sgx_enclave_id_t.html" title="type sgx_types::types::sgx_enclave_id_t">sgx_enclave_id_t</a>&gt;</pre><div class="docblock"><p>Loads the enclave using its file name and initializes it using a launch token.</p>
+<h1 id="description" class="section-header"><a href="#description">Description</a></h1>
+<p>The rsgx_create_enclave function will load and initialize the enclave using
+the enclave file name and a launch token. If the launch token is incorrect, it will
+get a new one and save it back to the input parameter “token”, and the parameter
+“updated” will indicate that the launch token was updated.</p>
+<p>If both enclave and launch token are valid, the function will return a value of
+SGX_SUCCESS. The enclave ID (handle) is returned via the enclave_id parameter.</p>
+<p>The library libsgx_urts.a provides this function to load an enclave with
+Intel(R) SGX hardware, and it cannot be used to load an enclave linked with
+the simulation library. On the other hand, the simulation library libsgx_
+urts_sim.a exposes an identical interface which can only load a simulation
+enclave. Running in simulation mode does not require Intel(R) SGX hardware/
+driver. However, it does not provide hardware protection.</p>
+<p>The randomization of the load address of the enclave is dependent on the
+operating system. The address of the heap and stack is not randomized and is
+at a constant offset from the enclave base address. A compromised loader or
+operating system (both of which are outside the TCB) can remove the randomization
+entirely. The enclave writer should not rely on the randomization
+of the base address of the enclave.</p>
+<h1 id="parameters" class="section-header"><a href="#parameters">Parameters</a></h1>
+<p><strong>file_name</strong></p>
+<p>Name or full path to the enclave image.</p>
+<p><strong>debug</strong></p>
+<p>The valid value is 0 or 1.</p>
+<p>0 indicates to create the enclave in non-debug mode. An enclave created in
+non-debug mode cannot be debugged.</p>
+<p>1 indicates to create the enclave in debug mode. The code/data memory
+inside an enclave created in debug mode is accessible by the debugger or
+other software outside of the enclave and thus is not under the same memory
+access protections as an enclave created in non-debug mode.</p>
+<p>Enclaves should only be created in debug mode for debug purposes. A helper
+macro SGX_DEBUG_FLAG is provided to create an enclave in debug mode. In
+release builds, the value of SGX_DEBUG_FLAG is 0. In debug and pre-release
+builds, the value of SGX_DEBUG_FLAG is 1 by default.</p>
+<p><strong>launch_token [deprecated]</strong></p>
+<p>A pointer to an sgx_launch_token_t object used to initialize the enclave to be
+created. Must not be NULL. The caller can provide an all-0 buffer as the sgx_
+launch_token_t object, in which case, the function will attempt to create a
+valid sgx_launch_token_t object and store it in the buffer. The caller should
+store the sgx_launch_token_t object and re-use it in future calls to create the
+same enclave. Certain platform configuration changes can invalidate a previously
+stored sgx_launch_token_t object. If the token provided is not valid,
+the function will attempt to update it to a valid one.</p>
+<p><strong>launch_token_updated [deprecated]</strong></p>
+<p>The output is 0 or 1. 0 indicates the launch token has not been updated. 1
+indicates the launch token has been updated.</p>
+<p><strong>misc_attr</strong></p>
+<p>A pointer to an sgx_misc_attribute_t structure that receives the misc select
+and attributes of the enclave.</p>
+<h1 id="requirements" class="section-header"><a href="#requirements">Requirements</a></h1>
+<p>Header: sgx_urts.h</p>
+<p>Library: libsgx_urts.a</p>
+<h1 id="return-value" class="section-header"><a href="#return-value">Return value</a></h1>
+<p>The sgx_enclave_id_t returned.</p>
+<h1 id="errors" class="section-header"><a href="#errors">Errors</a></h1>
+<p><strong>SGX_ERROR_INVALID_ENCLAVE</strong></p>
+<p>The enclave file is corrupted.</p>
+<p><strong>SGX_ERROR_INVALID_PARAMETER</strong></p>
+<p>The ‘enclave_id’, ‘updated’ or ‘token’ parameter is NULL.</p>
+<p><strong>SGX_ERROR_OUT_OF_MEMORY</strong></p>
+<p>Not enough memory available to complete rsgx_create_enclave().</p>
+<p><strong>SGX_ERROR_ENCLAVE_FILE_ACCESS</strong></p>
+<p>The enclave file can’t be opened. It may be caused by enclave file not being
+found or no privilege to access the enclave file.</p>
+<p><strong>SGX_ERROR_INVALID_METADATA</strong></p>
+<p>The metadata embedded within the enclave image is corrupt or missing.</p>
+<p><strong>SGX_ERROR_INVALID_VERSION</strong></p>
+<p>The enclave metadata version (created by the signing tool) and the untrusted
+library version (uRTS) do not match.</p>
+<p><strong>SGX_ERROR_INVALID_SIGNATURE</strong></p>
+<p>The signature for the enclave is not valid.</p>
+<p><strong>SGX_ERROR_OUT_OF_EPC</strong></p>
+<p>The protected memory has run out. For example, a user is creating too many
+enclaves, the enclave requires too much memory, or we cannot load one of the
+Architecture Enclaves needed to complete this operation.</p>
+<p><strong>SGX_ERROR_NO_DEVICE</strong></p>
+<p>The Intel SGX device is not valid. This may be caused by the Intel SGX driver
+not being installed or the Intel SGX driver being disabled.</p>
+<p><strong>SGX_ERROR_MEMORY_MAP_CONFLICT</strong></p>
+<p>During enclave creation, there is a race condition for mapping memory
+between the loader and another thread. The loader may fail to map virtual
+address. If this error code is encountered, create the enclave again.</p>
+<p><strong>SGX_ERROR_DEVICE_BUSY</strong></p>
+<p>The Intel SGX driver or low level system is busy when creating the enclave. If
+this error code is encountered, we suggest creating the enclave again.</p>
+<p><strong>SGX_ERROR_MODE_INCOMPATIBLE</strong></p>
+<p>The target enclave mode is incompatible with the mode of the current RTS.
+For example, a 64-bit application tries to load a 32-bit enclave or a simulation
+uRTS tries to load a hardware enclave.</p>
+<p><strong>SGX_ERROR_SERVICE_UNAVAILABLE</strong></p>
+<p>rsgx_create_enclave() needs the AE service to get a launch token. If the
+service is not available, the enclave may not be launched.</p>
+<p><strong>SGX_ERROR_SERVICE_TIMEOUT</strong></p>
+<p>The request to the AE service timed out.</p>
+<p><strong>SGX_ERROR_SERVICE_INVALID_PRIVILEGE</strong></p>
+<p>The request requires some special attributes for the enclave, but is not privileged.</p>
+<p><strong>SGX_ERROR_NDEBUG_ENCLAVE</strong></p>
+<p>The enclave is signed as a product enclave and cannot be created as a debuggable enclave.</p>
+<p><strong>SGX_ERROR_UNDEFINED_SYMBOL</strong></p>
+<p>The enclave contains an undefined symbol.
+The signing tool should typically report this type of error when the enclave is
+built.</p>
+<p><strong>SGX_ERROR_INVALID_MISC</strong></p>
+<p>The MiscSelct/MiscMask settings are not correct.</p>
+<p><strong>SGX_ERROR_UNEXPECTED</strong></p>
+<p>An unexpected error is detected.</p>
+</div></section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../";window.currentCrate = "sgx_urts";</script><script src="../main.js"></script><script defer src="../search-index.js"></script></body></html>

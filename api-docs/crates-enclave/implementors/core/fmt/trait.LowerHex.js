@@ -1,0 +1,9 @@
+(function() {var implementors = {};
+implementors["bytes"] = [{"text":"impl LowerHex for Bytes","synthetic":false,"types":[]},{"text":"impl LowerHex for BytesMut","synthetic":false,"types":[]}];
+implementors["env_logger"] = [{"text":"impl&lt;'a, T:&nbsp;LowerHex&gt; LowerHex for StyledValue&lt;'a, T&gt;","synthetic":false,"types":[]}];
+implementors["itertools"] = [{"text":"impl&lt;'a, I&gt; LowerHex for Format&lt;'a, I&gt; <span class=\"where fmt-newline\">where<br>&nbsp;&nbsp;&nbsp;&nbsp;I: Iterator,<br>&nbsp;&nbsp;&nbsp;&nbsp;I::Item: LowerHex,&nbsp;</span>","synthetic":false,"types":[]}];
+implementors["num_bigint"] = [{"text":"impl LowerHex for BigInt","synthetic":false,"types":[]},{"text":"impl LowerHex for BigUint","synthetic":false,"types":[]}];
+implementors["num_complex"] = [{"text":"impl&lt;T&gt; LowerHex for Complex&lt;T&gt; <span class=\"where fmt-newline\">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: LowerHex + Num + PartialOrd + Clone,&nbsp;</span>","synthetic":false,"types":[]}];
+implementors["png"] = [{"text":"impl LowerHex for Transformations","synthetic":false,"types":[]}];
+implementors["uuid"] = [{"text":"impl LowerHex for Hyphenated","synthetic":false,"types":[]},{"text":"impl&lt;'a&gt; LowerHex for HyphenatedRef&lt;'a&gt;","synthetic":false,"types":[]},{"text":"impl LowerHex for Simple","synthetic":false,"types":[]},{"text":"impl&lt;'a&gt; LowerHex for SimpleRef&lt;'a&gt;","synthetic":false,"types":[]},{"text":"impl LowerHex for Urn","synthetic":false,"types":[]},{"text":"impl&lt;'a&gt; LowerHex for UrnRef&lt;'a&gt;","synthetic":false,"types":[]},{"text":"impl LowerHex for Uuid","synthetic":false,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
