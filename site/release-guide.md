@@ -6,8 +6,6 @@ This documentation outlines the complete workflow and necessary operations to ac
 
 ## Outline
 
-## Outline
-
 ### [For New Release Managers](#for-new-release-managers)
 
 - [0. Become a member of the Apache Teaclave community](#0-become-a-member-of-the-apache-teaclave-community)
